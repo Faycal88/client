@@ -2,6 +2,8 @@ import { getArticles } from "../../redux/features/articleSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import "./article.css";
+import Loading from "../Loading/Loading";
 
 function Article() {
   const dispatch = useDispatch();
@@ -22,11 +24,14 @@ function Article() {
           style={{
             display: "flex",
             alignItems: "center",
+            textAlign: "flex-start",
             justifyContent: "space-evenly",
             padding: "4em 0em",
           }}
+          className="container"
         >
           <div
+            className="contain"
             style={{
               maxWidth: "500px",
               margin: "5em 5em",
@@ -45,7 +50,7 @@ function Article() {
           >
             <div style={{ top: "50%", button: "50%" }}>
               <h2>Plant Care Guide</h2>
-              <p style={{ marginTop: "2em" }}>
+              <p style={{ marginTop: "2em", textAlign: "flex-start" }}>
                 {`${item.description.substring(0, 500)}...`}
               </p>
             </div>
@@ -59,6 +64,12 @@ function Article() {
             </button>
           </div>
         </div>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <Loading />
       </div>
     );
   }

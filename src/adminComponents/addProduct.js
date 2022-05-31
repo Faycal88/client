@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { addProduct } from "../redux/features/productSlice";
 import FileBase64 from "react-file-base64";
+import { getCategories } from "../redux/features/categorySlice";
 
 function AddProduct() {
+  const { categories } = useSelector((state) => ({
+    ...state.category.categories,
+  }));
   const [product, setProduct] = useState({
     name: "",
     price: "",
@@ -22,6 +26,7 @@ function AddProduct() {
 
   useEffect(() => {
     error && toast.error(error);
+    dispatch(getCategories());
   }, [error]);
 
   const dispatch = useDispatch();
@@ -96,7 +101,6 @@ function AddProduct() {
             ) {
               dispatch(addProduct({ formData, toast }));
               setLoading(false);
-              navigate("/admin");
             } else {
               toast.error("Please fill in all the fields");
               setLoading(false);
@@ -153,12 +157,12 @@ function AddProduct() {
               }
             >
               <option value="">Select category</option>
-              <option value="indoor">Indoor</option>
-              <option value="outdoor">Outdoor</option>
-              <option value="Large">Large</option>
-              <option value="decorative">Decorative</option>
-              <option value="flower">Flower</option>
-              <option value="Others">Others</option>
+              {categories &&
+                categories.map((category) => (
+                  <option key={category._id} value={category.name}>
+                    {category.name}
+                  </option>
+                ))}
             </select>
           </div>
           <div className="form-group">

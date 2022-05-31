@@ -1,0 +1,13 @@
+@media only screen and (max-width: 995px) {
+  .article_contain {
+    margin: 1em 1em !important;
+  }
+  .article {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    justify-content: center;
+    margin-top: 2rem;
+    width: 100% !important;
+  }
+}

@@ -7,6 +7,7 @@ export const addProduct = createAsyncThunk(
   async ({ formData, toast }, { rejectWithValue }) => {
     try {
       const response = await api.addProduct(formData);
+      window.location.reload();
       toast.success("Product added");
       return response.data;
     } catch (error) {
@@ -46,6 +47,7 @@ export const deleteProduct = createAsyncThunk(
   async (id, { rejectWithValue }) => {
     try {
       const response = await api.deleteProduct(id);
+      window.location.reload();
       toast.success("Product deleted");
       return response.data;
     } catch (error) {

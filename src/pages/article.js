@@ -4,6 +4,7 @@ import { getArticleBySlug } from "../redux/features/articleSlice";
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import moment from "moment";
+import "./styles/article.css";
 
 function Article() {
   const { slug } = useParams();
@@ -28,15 +29,9 @@ function Article() {
         style={{
           margin: "4em 15em 0em 15em",
         }}
+        className="article_contain"
       >
-        <div
-          className="contain"
-          style={{
-            width: "100%",
-            textAlign: "flex-start",
-            justifyContent: "center",
-          }}
-        >
+        <div className="article">
           <img
             style={{
               borderTopLeftRadius: "15%",

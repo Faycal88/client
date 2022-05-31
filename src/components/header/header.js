@@ -87,11 +87,14 @@ function Header() {
               </li>
 
               {user?.token ? (
-                <div style={{ display: "flex", marginLeft: "8em" }}>
+                <div
+                  className="profiler"
+                  style={{ display: "flex", marginLeft: "8em" }}
+                >
                   {user?.role === "admin" ? (
                     <li className="nav-item">
                       {" "}
-                      <a className="nav-link" href="/admin">
+                      <a className="nav-link admin-link" href="/admin">
                         Dashboard
                       </a>{" "}
                     </li>
@@ -141,6 +144,7 @@ function Header() {
               )}
             </ul>
             <div
+              className="cart-container"
               style={{
                 marginLeft: ".5em",
               }}

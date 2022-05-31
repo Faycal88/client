@@ -1,13 +1,21 @@
 import quality from "./svgs/quality.svg";
 import delivery from "./svgs/delivery.svg";
 import assistance from "./svgs/assistance.svg";
+import "./whyUs.css";
 
 function WhyUs() {
   return (
     <div className="whyUs">
       <div className="whyUsText">
-        <h3>Why us?</h3>
+        <h3
+          style={{
+            textAlign: "center",
+          }}
+        >
+          Why us?
+        </h3>
         <div
+          className="whyUsTextContent"
           style={{
             display: "flex",
             alignItems: "center",
@@ -15,7 +23,7 @@ function WhyUs() {
             margin: "4em",
           }}
         >
-          <div style={{ marginRight: "5%" }}>
+          <div id="item" style={{ marginRight: "5%" }}>
             <img
               style={{ maxWidth: "100px", height: "100px" }}
               src={quality}
@@ -27,7 +35,7 @@ function WhyUs() {
               very best prices.
             </p>
           </div>
-          <div style={{ marginRight: "5%" }}>
+          <div id="item" style={{ marginRight: "5%" }}>
             <img
               style={{ maxWidth: "100px", height: "100px" }}
               src={delivery}
@@ -39,7 +47,7 @@ function WhyUs() {
               within 30 days and we’ll sort it.
             </p>
           </div>
-          <div style={{ marginRight: "5%" }}>
+          <div id="item" style={{ marginRight: "5%" }}>
             <img
               style={{ maxWidth: "100px", height: "100px" }}
               src={assistance}

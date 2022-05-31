@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import moment from "moment";
+import Loading from "../components/Loading/Loading";
 
 function TablePro() {
   const { loading, error } = useFetch(getProducts());
@@ -94,7 +95,11 @@ function TablePro() {
       </div>
     );
   }
-  return <div>Loading...</div>;
+  return (
+    <div>
+      <Loading />
+    </div>
+  );
 }
 
 export default TablePro;

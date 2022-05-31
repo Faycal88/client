@@ -13,12 +13,13 @@ import { getProducts } from "../redux/features/productSlice";
 import { useFetch } from "../redux/fetch";
 import { useSelector } from "react-redux";
 import VisitStore from "../components/visitStore/visitStore";
+import ShowCollection from "../components/collections/collection";
 
 function Landing() {
   return (
     <div>
-      <section>
-        <div className="top_landing col-md-11 flex-lg-row ">
+      <section className="sec_one">
+        <div className="top_landing col-md-11 flex-lg-row">
           <div
             style={{
               margin: "3em 3em",
@@ -27,7 +28,12 @@ function Landing() {
             className="topLeft col-md-4 "
           >
             <div className="topLeftText">
-              <img style={{ maxWidth: "200px" }} src={blackLogo} alt="logo" />
+              <img
+                className="logo"
+                style={{ maxWidth: "200px" }}
+                src={blackLogo}
+                alt="logo"
+              />
               <h1>Welcome</h1>
               <h2>to the world of plants</h2>
             </div>
@@ -104,6 +110,9 @@ function Landing() {
             </div>
           </div>
         </section> */}
+      <section>
+        <ShowCollection />
+      </section>
       <section
         style={{
           marginTop: "2em",
@@ -126,7 +135,7 @@ function Landing() {
           <Carousel items={"flower"} />
         </div>
       </section>
-      <section style={{ margin: "3% 5%", textAlign: "center" }}>
+      <section style={{ margin: "3% 5%" }}>
         <WhyUs />
       </section>
       <section
@@ -138,20 +147,8 @@ function Landing() {
       >
         <Article />
       </section>
-      <section>
+      <section className="sec_visit_store">
         <VisitStore />
-      </section>
-      <section
-        style={{
-          filter: "brightness(50%)",
-          backgroundImage: `url(${cacti})`,
-          backgroundSize: "contain",
-          backgroundRepeat: "repeat",
-          backgroundPosition: "center",
-          height: "10em",
-        }}
-      >
-        <div style={{ margin: "1% 18%" }}>Hello</div>
       </section>
     </div>
   );

@@ -12,6 +12,7 @@ function Carousel(props) {
   return (
     products && (
       <div
+        className="carousel"
         style={{
           margin: "0em  2em",
           gap: "1em",
@@ -54,6 +55,8 @@ function Carousel(props) {
             .filter((product) => product.category === props.items)
             .map((product) => (
               <div
+                className="carousel-item"
+                key={product._id}
                 style={{
                   margin: "1em",
                   border: "1px solid black",
@@ -73,7 +76,6 @@ function Carousel(props) {
                   flexGrow: "0",
                   flexShrink: "0",
                 }}
-                className="card"
               >
                 <img
                   style={{

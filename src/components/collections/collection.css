@@ -1,0 +1,25 @@
+.card-img-top {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card-img-top:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+@media only screen and (max-width: 995px) {
+  .cardcontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  .card {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+}

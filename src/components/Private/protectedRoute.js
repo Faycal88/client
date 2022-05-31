@@ -29,14 +29,3 @@ export const NeedLogin = ({ children }) => {
     return <Navigate to="/login" />;
   }
 };
-
-export const ShowHeader = ({ url, children }) => {
-  const path = useParams("/").toString();
-
-  console.log(path);
-  if (1) {
-    return null;
-  } else {
-    return children;
-  }
-};

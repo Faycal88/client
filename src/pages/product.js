@@ -7,6 +7,7 @@ import { getProduct } from "../redux/features/productSlice";
 import { cart } from "../redux/features/cartSlice";
 import { getArticleProduct } from "../redux/features/articleSlice";
 import moment from "moment";
+import "./styles/card.css";
 
 function ProductPage() {
   const [error, setError] = useState(null);
@@ -85,7 +86,15 @@ function ProductPage() {
                     <button
                       onClick={() => {
                         const productId = product._id;
-                        dispatch(cart({ productId, toast }));
+                        const user = localStorage.getItem("profile");
+                        if (user) {
+                          toast.success("Product added to cart");
+                          return dispatch(cart({ productId, toast }));
+                        } else {
+                          return toast.error(
+                            "You must be logged in to add to cart"
+                          );
+                        }
                       }}
                       style={{
                         backgroundColor: "red",

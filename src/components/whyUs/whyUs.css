@@ -1,0 +1,13 @@
+@media only screen and (max-width: 995px) {
+  .whyUsTextContent {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    width: 80% !important;
+    margin-left: 0;
+  }
+  .whyUsTextContent #item {
+    margin: 0 !important;
+    width: 100%;
+  }
+}

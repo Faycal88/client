@@ -7,9 +7,24 @@ export default function DashNav() {
         style={{ display: "flex", justifyContent: "space-evenly" }}
         className="wrapper"
       >
-        <Link to="/admin/article">Manage articles</Link>
-        <Link to="/admin/Product">Manage products</Link>
-        <Link to="/admin/user">Manage users</Link>
+        <Link className="nav-link" to="/admin/article">
+          Manage articles
+        </Link>
+        <Link className="nav-link" to="/admin/Product">
+          Manage products
+        </Link>
+        <Link className="nav-link" to="/admin/Categories">
+          Manage Categories
+        </Link>
+        <Link className="nav-link" to="/admin/user">
+          Manage users
+        </Link>
+        <Link className="nav-link" to="/admin/collections">
+          Manage Collections
+        </Link>
+        <Link className="nav-link" to="/admin/orders">
+          Manage Orders
+        </Link>
       </div>
     </div>
   );

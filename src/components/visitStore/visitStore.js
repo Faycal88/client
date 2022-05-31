@@ -10,8 +10,9 @@ function VisitStore() {
         gap: "1em",
         margin: "2em 4em 0em 4em",
       }}
+      className="visit-store"
     >
-      <div className="col-md-4 d-flex justify-content-center">
+      <div className="col-md-4 d-flex justify-content-center ">
         <img
           style={{
             maxWidth: "70%",
@@ -35,7 +36,7 @@ function VisitStore() {
             border: "none",
           }}
         >
-          <span>{`Find Your Local Store >`} </span>
+          <span className="Link">{`Find Your Local Store >`} </span>
         </button>
       </div>
     </div>

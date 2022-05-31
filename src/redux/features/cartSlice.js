@@ -7,7 +7,9 @@ export const cart = createAsyncThunk(
   async ({ productId, toast }, { rejectWithValue }) => {
     try {
       const response = await api.cart({ add: productId });
+
       toast.success("Added to cart successfully");
+      window.location.reload();
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data);

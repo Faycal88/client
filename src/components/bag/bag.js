@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { removeFromBag } from "../../redux/features/cartSlice";
 import { addOrder } from "../../redux/features/orderSlice";
+import "./bag.css";
 
 function Bag(props) {
   const allWilayasDetails = getWilayaList();
@@ -19,14 +20,14 @@ function Bag(props) {
 
   const [order, setOrder] = useState({
     name: userData.firstName + " " + userData.lastName,
-    phone: "",
+    phone: userData.phone || "",
     address: "",
     wilaya: "Not selected",
     payment: "Cash on Delivery",
     email: userData.email,
     note: "",
     products: [],
-    total: 0,
+    total: final.reduce((acc, item) => acc + item.price * item.quantity, 0),
   });
 
   console.log(order);
@@ -34,7 +35,10 @@ function Bag(props) {
   const dispatch = useDispatch();
 
   return (
-    <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+    <div
+      className="bag"
+      style={{ display: "flex", justifyContent: "space-evenly" }}
+    >
       <div>
         {" "}
         <table className="table table-borderless ">
@@ -138,7 +142,7 @@ function Bag(props) {
               <PhoneInput
                 country={"DZ"}
                 placeholder="Enter phone number"
-                value="+213"
+                value={userData.phone}
                 onChange={(e) => {
                   setOrder({ ...order, phone: e });
                 }}
@@ -184,7 +188,17 @@ function Bag(props) {
             </div>
             <div className="form-group">
               <label>Add a note</label>
-              <textarea className="form-control" rows="3"></textarea>
+              <textarea
+                onChange={(e) => {
+                  let newOrder = { ...order };
+                  newOrder.note = e.target.value;
+                  setOrder(newOrder);
+                }}
+                className="form-control"
+                rows="3"
+              >
+                {order.note}
+              </textarea>
             </div>
 
             <button

@@ -42,6 +42,8 @@ export const deleteProduct = (id) => API.delete(`products/deleteProduct/${id}`);
 
 export const addOrder = (FormData) => API.post("orders/addOrder", FormData);
 
+export const getOrders = () => API.get("orders/getOrders");
+
 export const addArticle = (FormData) =>
   API.post("articles/addArticle", FormData);
 
@@ -52,6 +54,28 @@ export const getArticleBySlug = (slug) =>
 
 export const getArticleProduct = (id) =>
   API.get(`articles/getArticleProduct/${id}`);
+
+export const addCollection = (FormData) =>
+  API.post("collections/addCollection", FormData);
+
+export const getCollections = () => API.get("collections/getCollections");
+
+export const getProductsbyCollection = (name) =>
+  API.get(`collections/getProductsbyCollection/${name}`);
+
+export const deleteCollection = (id) =>
+  API.delete(`collections/deleteCollection/${id}`);
+
+export const addCategory = (FormData) =>
+  API.post("categories/addCategory", FormData);
+
+export const getCategories = () => API.get("categories/");
+
+export const deleteCategory = (id) =>
+  API.delete(`categories/deleteCategory/${id}`);
+
+export const addSubsriber = (FormData) =>
+  API.post("subscribers/addSubsriber", FormData);
 
 /* export const addArticle = (FormData) => API.post("/article/add", FormData);
 export const editArticle = (FormData) =>

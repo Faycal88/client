@@ -29,6 +29,11 @@ import VisitUs from "./pages/visitUs";
 import ArticleTable from "./adminComponents/articleTable";
 import UsersTable from "./adminComponents/userTable";
 import NotFound from "./components/NotFound/notFound";
+import AddCollection from "./adminComponents/addCollection";
+import EditArticle from "./adminComponents/editArticle";
+import Categories from "./adminComponents/categories";
+import ShowOrders from "./adminComponents/orders";
+import CustomFooter from "./components/footer/footer";
 function App() {
   const dispatch = useDispatch();
   const user = JSON.parse(localStorage.getItem("profile"));
@@ -40,6 +45,7 @@ function App() {
       <ToastContainer />
       {/* <ShowHeader path="/:url" children={<Header />}></ShowHeader> */}
       <Header />
+
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/shop" element={<Shop />} />
@@ -58,10 +64,14 @@ function App() {
           </Route>
           <Route path="article" element={<ArticleTable />}>
             <Route path="new" element={<AddArticle />} />
+            <Route path=":id" element={<EditArticle />} />
           </Route>
           <Route path="user" element={<UsersTable />}>
-            <Route path="new" element={<AddArticle />} />
+            {/* <Route path="new" element={<AddArticle />} /> */}
           </Route>
+          <Route path="collections" element={<AddCollection />}></Route>
+          <Route path="Categories" element={<Categories />}></Route>
+          <Route path="orders" element={<ShowOrders />}></Route>
         </Route>
         <Route
           path="/Register"
@@ -75,6 +85,7 @@ function App() {
         <Route path="/product/:id" element={<ProductPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <CustomFooter />
     </BrowserRouter>
   );
 }

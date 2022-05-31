@@ -16,8 +16,7 @@ function ArticleTable() {
   const [articlePerPage, setArticlePerPage] = useState(4);
   const indexOfLastArticle = currentPage * articlePerPage;
   const indexOfFirstArticle = indexOfLastArticle - articlePerPage;
-
-  console.log(initArticle, loading);
+  console.log(article, loading);
 
   useEffect(() => {
     error && toast.error(error);
@@ -25,8 +24,9 @@ function ArticleTable() {
 
   useEffect(() => {
     let res = dispatch(getArticles());
-  }, [initArticle]);
+  }, []);
   if (!loading && article) {
+    console.log(article);
     const currentArticle = article.slice(
       indexOfFirstArticle,
       indexOfLastArticle
@@ -67,7 +67,7 @@ function ArticleTable() {
                 </td>
                 <td>{moment(article.createdAt).format("DD/MM/YYYY")}</td>
                 <td>
-                  <Link to={`/admin/article/edit/${article.id}`}>Edit</Link>
+                  <Link to={`/admin/article/${article._id}`}>Edit</Link>
                 </td>
               </tr>
             ))}

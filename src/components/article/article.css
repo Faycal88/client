@@ -1,0 +1,20 @@
+@media only screen and (max-width: 995px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    justify-content: center;
+    margin-top: 2rem;
+    width: 100% !important;
+  }
+  .contain img {
+    width: 100% !important;
+    top: 0 !important;
+    height: 100%;
+    object-fit: cover;
+  }
+  .contain p {
+    text-align: center;
+    top: -8em !important;
+  }
+}

@@ -1,37 +1,67 @@
+import "./styles/shop.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../redux/features/productSlice";
 import { useEffect, useState } from "react";
 import Card from "../components/shopingCard/card";
 import { useParams, useSearchParams } from "react-router-dom";
+import {
+  getCollections,
+  getProductsbyCollection,
+} from "../redux/features/collectionSlice";
 
 function Shop() {
   const dispatch = useDispatch();
   const { products } = useSelector((state) => ({ ...state.product }));
+  const { collections } = useSelector((state) => ({ ...state.collection }));
+  console.log(collections);
   let [searchParams, setSearchParams] = useSearchParams({});
-  const category = searchParams.get("browse");
-  console.log(category);
+
   const [filter, setFilter] = useState("");
   const [searchValue, setSearchValue] = useState();
-  console.log();
 
   useEffect(() => {
     dispatch(getProducts());
-  }, []);
-
-  useEffect(() => {
-    if (category) {
+    dispatch(getCollections());
+    const category = searchParams.get("browse");
+    const collectionName = searchParams.get("collection");
+    if (category != null && category !== "") {
       setFilter(products.filter((product) => product.category === category));
-      setSearchParams({});
+    } else if (
+      collectionName != null &&
+      collectionName != undefined &&
+      collectionName !== ""
+    ) {
+      const { products } = collections.find(
+        (collection) => collection.name === collectionName
+      );
+      console.log(products);
+      setFilter(products);
     } else {
       setFilter(products);
     }
   }, []);
 
+  /* useEffect(() => {
+    if (collections && category == null) {
+      console.log("collections");
+    } else if (category != undefined) {
+      console.log(category);
+      return setFilter(
+        products.filter((product) => product.category === category)
+      );
+    } else {
+      setFilter(products);
+    }
+  }, [dispatch, products, category, collections]); */
+
   function search(e) {
     e.preventDefault();
     setFilter(
-      products.filter((product) =>
-        product.title.toLowerCase().includes(searchValue.toLowerCase())
+      products.filter(
+        (product) =>
+          product.title.toLowerCase().includes(searchValue.toLowerCase()) ||
+          product.category.toLowerCase().includes(searchValue.toLowerCase()) ||
+          product.description.toLowerCase().includes(searchValue.toLowerCase())
       )
     );
   }
@@ -44,7 +74,7 @@ function Shop() {
       className="col-md-11"
     >
       <h1>Shop</h1>
-      <div style={{ display: "flex" }}>
+      <div className="shop" style={{ display: "flex" }}>
         <div style={{ marginTop: "2em" }} className="sidebar">
           <div className="sidebar-header col-md-12">
             <div style={{ display: "flex", position: "relative" }}>

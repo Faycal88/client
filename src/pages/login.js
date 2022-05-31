@@ -52,131 +52,146 @@ function Login() {
 
   return (
     <div
-      style={{ display: "flex", justifyContent: "center" }}
-      className="container mt-5"
+      style={{
+        margin: "4em 2em 0em 2em",
+      }}
+      className="d-flex justify-content-center align-items-center row"
     >
-      <div className="card">
+      <div className=" w-50 login-form">
         {error && <p className="text-danger">{error}</p>}
-        <div className="card-body">
-          <h5 className="card-title">Log in to your account</h5>
-          <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="exampleInputEmail1">Email address</label>
-              <input
-                type="email"
-                className="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                placeholder="Enter email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="exampleInputPassword1">Password</label>
-              <input
-                type="password"
-                className="form-control"
-                id="exampleInputPassword1"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-            <button type="submit" className="btn btn-primary mt-3 ">
-              Submit
-            </button>
-            <div>
-              <Spacer />
-            </div>
-            <div style={{ display: "flex" }}>
-              <div>
-                <GoogleLogin
-                  clientId="211431792070-5mcgq3uike9ok8hjuaq77kglt5mqdebb.apps.googleusercontent.com"
-                  buttonText="Login with Google"
-                  onSuccess={(res) => {
-                    console.log(res);
-                    const {
-                      email,
-                      givenName,
-                      familyName,
-                      googleId,
-                      role,
-                      imageUrl,
-                    } = res.profileObj;
-                    const { accessToken } = res;
-                    const result = {
-                      email,
-                      googleId,
-                      firstName: givenName,
-                      lastName: familyName,
-                      token: accessToken,
-                      password: "google",
-                      role: "user",
-                      picture: imageUrl,
-                    };
-                    dispatch(Gsign({ result, navigate, toast }));
-                    console.log(result);
-                  }}
-                  onFailure={(err) => {
-                    console.log(err);
-                  }}
-                  cookiePolicy={"single_host_origin"}
+        <h5 className="card-title">Log in to your account</h5>
+        <div className=" d-flex card-body">
+          <div>
+            <form onSubmit={handleSubmit}>
+              <div className="form-group">
+                <label htmlFor="exampleInputEmail1">Email address</label>
+                <input
+                  type="email"
+                  className="form-control"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                  placeholder="Enter email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
-              <div>
-                <FacebookLogin
-                  appId="1344499929288305"
-                  autoLoad={false}
-                  fields="name,email,picture"
-                  scope="public_profile"
-                  onClick={componentClicked}
-                  callback={responseFacebook}
-                  render={(renderProps) => (
-                    <button
-                      style={{ width: "100px" }}
-                      onClick={renderProps.onClick}
-                      disabled={renderProps.disabled}
-                      className="btn btn-primary mt-3"
-                    >
-                      Login with Facebook
-                    </button>
-                  )}
+              <div className="form-group">
+                <label htmlFor="exampleInputPassword1">Password</label>
+                <input
+                  type="password"
+                  className="form-control"
+                  id="exampleInputPassword1"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
+              <button type="submit" className="btn btn-primary mt-3 ">
+                Submit
+              </button>
+              <div>
+                <Spacer />
+              </div>
+            </form>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              marginLeft: "5em",
+              gap: "1em",
+            }}
+          >
+            <div
+              style={{
+                width: "15em",
+              }}
+            >
+              <GoogleLogin
+                clientId="211431792070-5mcgq3uike9ok8hjuaq77kglt5mqdebb.apps.googleusercontent.com"
+                buttonText="Login with Google"
+                onSuccess={(res) => {
+                  console.log(res);
+                  const {
+                    email,
+                    givenName,
+                    familyName,
+                    googleId,
+                    role,
+                    imageUrl,
+                  } = res.profileObj;
+                  const { accessToken } = res;
+                  const result = {
+                    email,
+                    googleId,
+                    firstName: givenName,
+                    lastName: familyName,
+                    token: accessToken,
+                    password: "google",
+                    role: "user",
+                    picture: imageUrl,
+                  };
+                  dispatch(Gsign({ result, navigate, toast }));
+                  console.log(result);
+                }}
+                onFailure={(err) => {
+                  console.log(err);
+                }}
+                cookiePolicy={"single_host_origin"}
+              />
             </div>
-            <div className="login_link">
-              Don't have an account ? <Link to="/register">Register</Link>
+            <div
+              style={{
+                width: "11em",
+              }}
+            >
+              <FacebookLogin
+                appId="1344499929288305"
+                autoLoad={false}
+                fields="name,email,picture"
+                scope="public_profile"
+                onClick={componentClicked}
+                callback={responseFacebook}
+                render={(renderProps) => (
+                  <button
+                    style={{ width: "60px" }}
+                    onClick={renderProps.onClick}
+                    disabled={renderProps.disabled}
+                    className="btn btn-primary mt-3"
+                  >
+                    Facebook
+                  </button>
+                )}
+              />
             </div>
-          </form>
+          </div>
+        </div>
+        <div className="login_link">
+          Don't have an account ? <Link to="/register">Register</Link>
         </div>
       </div>
-      <div className="card">
-        <div className="card-body">
-          <img className="logo" src={Logo} alt="" />
-          <div className="logo_text_card">
-            <p>
-              De nos jours, nous sommes tous connectés par la technologie et les{" "}
-              <br />
-              commodités de vente au détail qui changent notre façon de <br />
-              travailler, de vivre, de magasiner et de passer notre temps libre{" "}
-              <br />
-              Chez L'éternelle Des Plantes, nous innovons et évoluons absolument{" "}
-              <br />
-              pour répondre aux besoins et aux désirs de nos clients, mais{" "}
-              <br />
-              quelques éléments de base de notre expérience - avec nous depuis{" "}
-              <br />
-              le début - ne changeront jamais. C'est la promesse d'une qualité,{" "}
-              <br />
-              d'une sélection et d'un service imbattables qui servent de <br />
-              fondement à notre entreprise et qui créent une expérience de{" "}
-              <br />
-              jardinerie incroyable qui ne peut tout simplement pas être trouvée{" "}
-              <br />
-              ailleurs.
-            </p>
-          </div>
+      <div>
+        <img className="logo" src={Logo} alt="" />
+        <div className="logo_text_card m-2 ">
+          <p>
+            De nos jours, nous sommes tous connectés par la technologie et les{" "}
+            <br />
+            commodités de vente au détail qui changent notre façon de <br />
+            travailler, de vivre, de magasiner et de passer notre temps libre{" "}
+            <br />
+            Chez L'éternelle Des Plantes, nous innovons et évoluons absolument{" "}
+            <br />
+            pour répondre aux besoins et aux désirs de nos clients, mais <br />
+            quelques éléments de base de notre expérience - avec nous depuis{" "}
+            <br />
+            le début - ne changeront jamais. C'est la promesse d'une qualité,{" "}
+            <br />
+            d'une sélection et d'un service imbattables qui servent de <br />
+            fondement à notre entreprise et qui créent une expérience de <br />
+            jardinerie incroyable qui ne peut tout simplement pas être trouvée{" "}
+            <br />
+            ailleurs.
+          </p>
         </div>
       </div>
     </div>
