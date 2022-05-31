@@ -10,7 +10,7 @@ function ShowCollection() {
 
   useEffect(() => {
     dispatch(getCollections());
-  }, [dispatch]);
+  }, []);
 
   if (!loading && collections) {
     return (

@@ -9,7 +9,7 @@ function CustomFooter() {
   const [email, setEmail] = useState({
     email: "",
   });
-  console.log(email);
+
   const dispatch = useDispatch();
 
   return (

@@ -21,7 +21,6 @@ function ProductPage() {
   }, [error]);
 
   const { id } = useParams();
-  console.log(id);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -31,7 +30,6 @@ function ProductPage() {
   }, []);
 
   if (!loading && product) {
-    console.log(article);
     return (
       <div>
         <div

@@ -1,5 +1,5 @@
 import "./carousel.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { getProducts } from "../../redux/features/productSlice";
 import { useFetch } from "../../redux/fetch";
 import { Link } from "react-router-dom";
@@ -8,7 +8,6 @@ function Carousel(props) {
   const { data, error } = useFetch(getProducts());
   const { products, loading } = useSelector((state) => state.product);
 
-  console.log(loading, products);
   return (
     products && (
       <div
@@ -82,16 +81,16 @@ function Carousel(props) {
                     marginBottom: ".75rem",
                     width: "100%",
                   }}
-                  class="card-img-top"
+                  className="card-img-top"
                   src={product.image}
                   alt="Card image cap"
                 />
-                <div class="card-body">
-                  <h5 class="card-title">{product.title}</h5>
+                <div className="card-body">
+                  <h5 className="card-title">{product.title}</h5>
 
                   <div className="d-flex justify-content-between">
-                    <p class="card-text">
-                      <small class="text-muted">{product.price}</small>
+                    <p className="card-text">
+                      <small className="text-muted">{product.price}</small>
                     </p>
                     <Link className="link" to={`/product/${product._id}`}>
                       View

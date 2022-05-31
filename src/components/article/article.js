@@ -16,7 +16,6 @@ function Article() {
 
   if (!loading && !error && article) {
     var item = article[Math.floor(Math.random() * article.length)];
-    console.log(item);
 
     return (
       <div className="article">

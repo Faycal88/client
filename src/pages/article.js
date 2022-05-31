@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import moment from "moment";
 import "./styles/article.css";
+import Loading from "../components/Loading/Loading";
 
 function Article() {
   const { slug } = useParams();
@@ -14,7 +15,6 @@ function Article() {
   const loading = useSelector((state) => state.article.loading);
   const error = useSelector((state) => state.article.error);
 
-  console.log(article);
   useEffect(() => {
     error && toast.error(error);
   }, [error]);
@@ -143,7 +143,15 @@ function Article() {
       </div>
     );
   } else {
-    return <div>Loading...</div>;
+    return (
+      <div
+        style={{
+          marginTop: "4em",
+        }}
+      >
+        <Loading />
+      </div>
+    );
   }
 }
 

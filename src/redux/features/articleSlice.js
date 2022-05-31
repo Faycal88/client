@@ -41,7 +41,6 @@ export const getArticleBySlug = createAsyncThunk(
 export const getArticleProduct = createAsyncThunk(
   "article/getProduct",
   async (id, { rejectWithValue }) => {
-    console.log(id);
     try {
       const response = await api.getArticleProduct(id);
       return response.data;
