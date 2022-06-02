@@ -88,9 +88,9 @@ function Carousel(props) {
                 <div className="card-body">
                   <h5 className="card-title">{product.title}</h5>
 
-                  <div className="d-flex justify-content-between">
+                  <div className="d-flex justify-content-between flex-wrap">
                     <p className="card-text">
-                      <small className="text-muted">{product.price}</small>
+                      <small className="text-muted">{`${product.price} DZD`}</small>
                     </p>
                     <Link className="link" to={`/product/${product._id}`}>
                       View
