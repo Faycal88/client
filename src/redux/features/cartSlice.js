@@ -32,13 +32,15 @@ export const getCart = createAsyncThunk(
 export const removeFromBag = createAsyncThunk(
   "auth/cart",
   async ({ productId, toast }, { rejectWithValue }) => {
-    console.log(productId);
     try {
       const response = await api.removeFromBag({ remove: productId });
       toast.success("Removed from cart successfully");
-      return response.data;
+      localStorage.setItem("cart", JSON.stringify(response.data.cart));
+      window.location.reload();
+      return response.data.cart;
     } catch (error) {
-      return rejectWithValue(error.response.data);
+      console.log(error);
+      return rejectWithValue(error.response.data.message);
     }
   }
 );
@@ -53,6 +55,9 @@ const cartSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       state.cart.push(action.payload);
+    },
+    removeFromCart: (state, action) => {
+      state.cart = state.cart.filter((item) => item.id !== action.payload);
     },
   },
   extraReducers: {

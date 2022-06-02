@@ -81,7 +81,7 @@ function Header() {
                 </a>
               </li>
               <li className="nav-item">
-                <a id="contact" className="nav-link" href="#">
+                <a id="contact" className="nav-link" href="/contact">
                   Contact
                 </a>
               </li>

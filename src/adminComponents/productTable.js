@@ -96,7 +96,11 @@ function TablePro() {
     );
   }
   return (
-    <div>
+    <div
+      style={{
+        marginTop: " 2em",
+      }}
+    >
       <Loading />
     </div>
   );

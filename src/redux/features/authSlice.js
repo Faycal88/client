@@ -65,7 +65,24 @@ export const Update = createAsyncThunk(
     try {
       const response = await api.update(user);
       console.log(response);
-      toast.success("Update Successful");
+      localStorage.setItem("profile", JSON.stringify(response.data));
+      toast.success(response.message);
+      window.location.reload();
+      return response.data;
+    } catch (error) {
+      toast.error(error.response.data.message);
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
+export const UpdatePass = createAsyncThunk(
+  "auth/updatePass",
+  async ({ password, toast }, { rejectWithValue }) => {
+    try {
+      const response = await api.UpdatePass(password);
+      toast.success(response.data.message);
+      window.location.reload();
       return response.data;
     } catch (error) {
       toast.error(error.response.data.message);
@@ -149,6 +166,18 @@ const authSlice = createSlice({
       state.user = action.payload;
     },
     [Update.rejected]: (state, action) => {
+      state.loading = false;
+      state.error = action.payload.message;
+    },
+    [UpdatePass.pending]: (state, action) => {
+      state.loading = true;
+    },
+    [UpdatePass.fulfilled]: (state, action) => {
+      state.loading = false;
+      localStorage.setItem("profile", JSON.stringify({ ...action.payload }));
+      state.user = action.payload;
+    },
+    [UpdatePass.rejected]: (state, action) => {
       state.loading = false;
       state.error = action.payload.message;
     },

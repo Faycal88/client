@@ -28,6 +28,7 @@ export const getCart = () => API.get("users/getCart");
 export const removeFromBag = (productId) =>
   API.patch("users/removeFromBag", productId);
 export const update = (FormData) => API.patch("users/updateUser", FormData);
+export const UpdatePass = (FormData) => API.patch("users/updatePass", FormData);
 
 export const addProduct = (FormData) =>
   API.post("products/addProduct", FormData);

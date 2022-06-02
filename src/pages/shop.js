@@ -1,12 +1,16 @@
 import "./styles/shop.css";
+import Box from "@mui/material/Box";
+import Slider from "@mui/material/Slider";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../redux/features/productSlice";
 import { useEffect, useState } from "react";
 import Card from "../components/shopingCard/card";
 import { useSearchParams } from "react-router-dom";
 import { getCollections } from "../redux/features/collectionSlice";
+import Loading from "../components/Loading/Loading";
 
 function Shop() {
+  const [value, setValue] = useState([]);
   const dispatch = useDispatch();
   const { products } = useSelector((state) => ({ ...state.product }));
   const { collections } = useSelector((state) => ({ ...state.collection }));
@@ -55,6 +59,12 @@ function Shop() {
       )
     );
   }
+
+  function valuetext(value) {
+    return `${value} DZD`;
+  }
+
+  function handleChange(event, newValue) {}
 
   searchParams && searchParams.search && search();
 
@@ -168,6 +178,33 @@ function Shop() {
                 </button>
               </li>
             </ul>
+          </div>
+          <div
+            style={{
+              width: "80%",
+            }}
+          >
+            <h3>Price Range</h3>
+            <br />
+            {products && products.length > 0 && (
+              <Box sx={{ width: 250 }}>
+                <Slider
+                  aria-label="Temperature"
+                  defaultValue={30}
+                  getAriaValueText={valuetext}
+                  valueLabelDisplay="auto"
+                  step={500}
+                  marks
+                  min={
+                    Math.min(...products.map((product) => product.price)) / 100
+                  }
+                  max={
+                    Math.max(...products.map((product) => product.price)) / 100
+                  }
+                  onChange={handleChange}
+                />
+              </Box>
+            )}
           </div>
         </div>
         <div

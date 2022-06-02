@@ -111,7 +111,19 @@ function ShowOrders() {
                         ))}
                       </td>
                       <td>{order.total}</td>
-                      <td>{order.status}</td>
+                      <td>
+                        {order.status === "pending" ? (
+                          <span className="badge badge-warning">
+                            {order.status}
+                          </span>
+                        ) : order.status === "delivered" ? (
+                          <p className="badge badge-success">{order.status}</p>
+                        ) : order.status === "cancelled" ? (
+                          <p className="badge badge-danger">{order.status}</p>
+                        ) : (
+                          <p className="badge badge-info">{order.status}</p>
+                        )}
+                      </td>
                       <td>
                         {moment(order.createdAt).format("MMMM Do YYYY, h:mm a")}
                       </td>

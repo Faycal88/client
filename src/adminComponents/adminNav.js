@@ -1,10 +1,29 @@
 import { Link } from "react-router-dom";
+import "./styles/adminNav.css";
 
 export default function DashNav() {
   return (
     <div className="dash_nav">
       <div
-        style={{ display: "flex", justifyContent: "space-evenly" }}
+        style={{
+          margin: "2em 4em 0em 4em",
+        }}
+      >
+        <h1>Welcome</h1>
+        <p
+          style={{
+            display: "none",
+          }}
+          className="computer_alert"
+        >
+          <small>please log into a computer for optimized view</small>
+        </p>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-evenly",
+        }}
         className="wrapper"
       >
         <Link className="nav-link" to="/admin/article">

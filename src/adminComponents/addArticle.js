@@ -40,8 +40,6 @@ function AddArticle() {
 
   const { products, loading } = useSelector((state) => state.product);
 
-  console.log(products);
-
   return (
     <div
       style={{

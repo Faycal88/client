@@ -6,6 +6,7 @@ import Pagination from "./pagination";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import moment from "moment";
+import Loading from "../components/Loading/Loading";
 
 function ArticleTable() {
   const dispatch = useDispatch();
@@ -87,7 +88,11 @@ function ArticleTable() {
       </div>
     );
   } else {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
   }
 }
 

@@ -3,19 +3,28 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
-import { Update } from "../redux/features/authSlice";
+import { Update, UpdatePass } from "../redux/features/authSlice";
+import "./styles/profile.css";
 
 function Profile() {
   const userShow = useSelector((state) => state.auth.user);
+  const userInfo = localStorage.getItem("profile");
+  const userData = JSON.parse(userInfo);
+  console.log(userData);
 
   const [user, setUser] = useState({
-    picture: userShow.picture,
-    firstName: userShow.firstName,
-    lastName: userShow.lastName,
-    email: userShow.email,
-    phone: userShow.phone,
-    address: userShow.address,
-    phone: userShow.phone,
+    picture: userData.picture,
+    firstName: userData.firstName,
+    lastName: userData.lastName,
+    email: userData.email,
+    phone: userData.phone,
+    address: userData.address,
+    phone: userData.phone,
+  });
+  const [password, setPassword] = useState({
+    old: "",
+    new: "",
+    confirm: "",
   });
   console.log(user);
 
@@ -23,6 +32,7 @@ function Profile() {
 
   return (
     <div
+      className="profile"
       style={{
         marginTop: "4em",
         display: "flex",
@@ -33,15 +43,15 @@ function Profile() {
       <div>
         <img
           style={{ maxWidth: "200px", borderRadius: "50%" }}
-          src={userShow.picture}
+          src={userData.picture}
           alt="profile_picture"
         />
         <div>
           <h3>
-            {userShow.firstName} {userShow.lastName}
+            {userData.firstName} {userData.lastName}
           </h3>
-          <p>{userShow.email}</p>
-          <p>{userShow.phone}</p>
+          <p>{userData.email}</p>
+          <p>{userData.phone}</p>
         </div>
       </div>
       <div>
@@ -53,7 +63,7 @@ function Profile() {
               type="text"
               className="form-control"
               name="firstName"
-              placeholder={userShow.firstName}
+              placeholder={userData.firstName}
               onChange={(e) => setUser({ ...user, firstName: e.target.value })}
             />
 
@@ -62,7 +72,7 @@ function Profile() {
               type="text"
               className="form-control"
               name="lastName"
-              placeholder={userShow.lastName}
+              placeholder={userData.lastName}
               onChange={(e) => setUser({ ...user, lastName: e.target.value })}
             />
             <label htmlFor="email">Email address</label>
@@ -70,7 +80,7 @@ function Profile() {
               type="email"
               className="form-control"
               name="email"
-              value={userShow.email}
+              value={userData.email}
               disabled
             />
             <label htmlFor="phoneNumber">Phone number</label>
@@ -86,7 +96,6 @@ function Profile() {
               onClick={() => {
                 dispatch(Update({ user, toast }));
               }}
-              type="submit"
               className="btn btn-primary"
             >
               Update
@@ -96,13 +105,22 @@ function Profile() {
       </div>
       <div>
         <h3>Change password</h3>
+
+        <label htmlFor="oldPassword">Old password</label>
+        <input
+          type="password"
+          className="form-control"
+          name="oldPassword"
+          placeholder="Enter your old password"
+          onChange={(e) => setPassword({ ...password, old: e.target.value })}
+        />
         <label htmlFor="password">Password</label>
         <input
           type="password"
           className="form-control"
           name="password"
           placeholder="Enter password"
-          onChange={(e) => setUser({ ...user, password: e.target.value })}
+          onChange={(e) => setPassword({ ...password, new: e.target.value })}
         />
         <label htmlFor="password">Confirm Password</label>
         <input
@@ -111,9 +129,22 @@ function Profile() {
           name="password"
           placeholder="Enter password"
           onChange={(e) =>
-            setUser({ ...user, confirmPassword: e.target.value })
+            setPassword({ ...password, confirm: e.target.value })
           }
         />
+        <button
+          className="btn btn-primary mt-4"
+          onClick={() => {
+            if (password.new !== password.confirm) {
+              toast.error("Password not match");
+            } else {
+              dispatch(UpdatePass({ password, toast }));
+            }
+          }}
+        >
+          {" "}
+          Update Password
+        </button>
       </div>
     </div>
   );

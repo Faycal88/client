@@ -1,5 +1,6 @@
 import imgOne from ".././imgs/insideOne.jpg";
 import imgTwo from ".././imgs/insideTwo.jpg";
+import "./styles/visitUs.css";
 
 function VisitUs() {
   return (
@@ -7,12 +8,14 @@ function VisitUs() {
       style={{
         margin: "4em  2em",
       }}
+      className="visitUs"
     >
       <div
         style={{
           display: "flex",
           backgroundColor: "#B0ECAE",
         }}
+        className="frame"
       >
         <div className="col-md-4 d-flex flex-column m-2 align-items-center justify-content-center">
           <h1>Locations</h1>
@@ -32,8 +35,8 @@ function VisitUs() {
           ></iframe>
         </div>
       </div>
-      <div>
-        <div className="d-flex mt-5">
+      <div className="info">
+        <div className="d-flex mt-5 info">
           <div className="col-md-4 d-flex flex-column m-2 align-items-center justify-content-center">
             <h1>Alger</h1>
             <h4>Kouba - Garidi 2</h4>
@@ -64,9 +67,9 @@ function VisitUs() {
             style={{
               height: ".1em",
             }}
-            className="d-block w-100 bg-dark mt-5 mb-5"
+            className="d-block w-100 bg-dark mt-5 mb-5 info"
           ></div>
-          <div>
+          <div className="beforeyouGo">
             <h1>Before you Go !</h1>
             <div className="d-flex justify-content-space flex-lg-row gap-5">
               <div className="item">
