@@ -57,59 +57,7 @@ function Landing() {
         </div>
       </section>
 
-      {/*  <section
-          style={{
-            backgroundImage: `url(${mainImg})`,
-            backgroundSize: "contain",
-            backgroundRepeat: "no-repeat",
-            backgroundColor: "#E6E7E9",
-            height: "100vh",
-          }}
-          className="topSecrion"
-        >
-          <div style={{ marginTop: "1em" }} className="topLeft">
-            <div className="topLeftText">
-              <img style={{ maxWidth: "200px" }} src={blackLogo} alt="logo" />
-              <h1>Welcome</h1>
-              <h2>to the world of plants</h2>
-            </div>
-            <div>
-              <Typewriter
-                onInit={(typewriter) => {
-                  typewriter.typeString(randQuote).start();
-                }}
-              />
-            </div>
-          </div>
-          <div style={{ marginTop: "5em" }} className="topRight">
-            <div style={{ position: "relative" }} className="circle">
-              <h4 style={{ position: "absolute", top: "50px" }}>
-                One of the Most <br /> Popular Houseplants
-              </h4>
-              <img
-                style={{ maxWidth: "400px", zIndex: "100" }}
-                src={sideImg}
-                alt=""
-              />
-              <div
-                style={{
-                  display: "flex",
-                  position: "absolute",
-                  right: "50px",
-                  bottom: "10px",
-                }}
-              >
-                <button
-                  className="btn btn-dark "
-                  style={{ marginRight: "10px" }}
-                >
-                  Buy
-                </button>
-                <button className="btn btn-warning">Learn More</button>
-              </div>
-            </div>
-          </div>
-        </section> */}
+      
       <section>
         <ShowCollection />
       </section>
