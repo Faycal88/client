@@ -3,12 +3,9 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-   
+    color : #FFFFFF !important;
   }
-  
-  .nav-item a {
-    color : white;
-  }
+
   
   .profiler {
     margin-right: 8em !important;
