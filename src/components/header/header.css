@@ -3,12 +3,14 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    color : white;
   }
   .profiler {
     margin-right: 8em !important;
     display: flex;
     flex-direction: column;
     align-items: center;
+    color : white;
   }
   .cart-container {
     display: flex;
@@ -19,6 +21,6 @@
   }
   .navbar {
     background-color : black !important;
-    color : white;
+    
   }
 }
