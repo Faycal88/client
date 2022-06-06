@@ -13,11 +13,23 @@ function Bag(props) {
   const allWilayasDetails = getWilayaList();
   let user = localStorage.getItem("profile");
   let userData = JSON.parse(user);
+  
+   
+  const { cart } = useSelector((state) => state.cart);
+  console.log(cart);
+  useEffect(() => {
+    dispatch(getCart());
+  }, [dispatch]);
+  
+  
+  
+  
+  
   console.log(userData);
-  let cart = localStorage.getItem("cart");
-  let items = JSON.parse(cart);
-  const ids = items.map((item) => item._id);
-  let filtred = items.filter(({ _id }, index) => !ids.includes(_id, index + 1));
+  
+  
+  const ids = cart.map((item) => item._id);
+  let filtred = cart.filter(({ _id }, index) => !ids.includes(_id, index + 1));
   let [final, setFinal] = useState(filtred);
 
   const [order, setOrder] = useState({
