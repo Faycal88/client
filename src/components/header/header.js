@@ -41,7 +41,7 @@ function Header() {
     <div>
       <nav
         id="nav"
-        className="navbar navbar-expand-lg navbar-light bg-white   fixed-top"
+        class="navbar navbar-expand-lg navbar-light bg-white   fixed-top"
       >
         <div className="container-fluid">
           <a
