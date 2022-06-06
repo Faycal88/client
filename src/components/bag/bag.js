@@ -1,10 +1,10 @@
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getWilayaList } from "@dzcode-io/leblad";
 import { toast } from "react-toastify";
-import { useDispatch } from "react-redux";
-import { removeFromBag } from "../../redux/features/cartSlice";
+import { useDispatch , useSelector } from "react-redux";
+import { removeFromBag, getCart } from "../../redux/features/cartSlice";
 import { addOrder } from "../../redux/features/orderSlice";
 import empty from "./svgs/empty_cart.svg";
 import "./bag.css";
