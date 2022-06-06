@@ -40,16 +40,17 @@ function Bag(props) {
     payment: "Cash on Delivery",
     email: userData.email,
     note: "",
-    products: filtred,
+    products: [],
     total: final.reduce((acc, item) => acc + item.price * item.quantity, 0),
   });
 
-  console.log(order);
-  console.log(final);
-  console.log(filtred);
+ 
 
   const dispatch = useDispatch();
-  if (filtred && filtred.length > 0) {
+  if (filtred && filtred.length > 0 && cart) {
+     console.log(order);
+  console.log(final);
+  console.log(filtred);
     return (
       <div
         className="bag"
