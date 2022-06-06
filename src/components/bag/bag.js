@@ -30,7 +30,7 @@ function Bag(props) {
   
   const ids = cart.map((item) => item._id);
   let filtred = cart.filter(({ _id }, index) => !ids.includes(_id, index + 1));
-  let [final, setFinal] = useState(filtred);
+  let [final, setFinal] = useState(cart);
 
   const [order, setOrder] = useState({
     name: userData.firstName + " " + userData.lastName,
@@ -239,6 +239,7 @@ function Bag(props) {
                   ];
                   setOrder(newOrder);
                   dispatch(addOrder({ newOrder, toast }));
+                  
                 }}
               >
                 Confirm Order
