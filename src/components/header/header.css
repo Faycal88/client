@@ -17,4 +17,8 @@
     justify-content: center;
     margin-top: 1em;
   }
+  .navbar {
+    background-color : black !important;
+    color : white;
+  }
 }
