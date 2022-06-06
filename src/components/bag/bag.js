@@ -69,7 +69,7 @@ function Bag(props) {
               </tr>
             </thead>
             <tbody>
-              {final.map((item) => (
+              {filtred.map((item) => (
                 <tr key={item._id}>
                   <td>
                     <div
