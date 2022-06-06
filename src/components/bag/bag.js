@@ -22,17 +22,19 @@ function Bag(props) {
 
   const [order, setOrder] = useState({
     name: userData.firstName + " " + userData.lastName,
-    phone: userData.phone || "",
+    phone: userData.phone || "+213",
     address: "",
     wilaya: "Not selected",
     payment: "Cash on Delivery",
     email: userData.email,
     note: "",
-    products: [],
+    products: filtred,
     total: final.reduce((acc, item) => acc + item.price * item.quantity, 0),
   });
 
   console.log(order);
+  console.log(final);
+  console.log(filtred);
 
   const dispatch = useDispatch();
   if (filtred && filtred.length > 0) {
