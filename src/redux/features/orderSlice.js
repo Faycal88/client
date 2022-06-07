@@ -28,6 +28,19 @@ export const getOrders = createAsyncThunk(
   }
 );
 
+export const userOrder = createAsyncThunk(
+  "order/userOrder",
+  async ({ toast }, { rejectWithValue }) => {
+    try {
+      const response = await api.userOrder();
+      return response.data;
+    } catch (error) {
+      toast.error(error.response.message);
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
 const orderSlice = createSlice({
   name: "order",
   initialState: {
@@ -60,6 +73,17 @@ const orderSlice = createSlice({
       state.loading = false;
     },
     [getOrders.rejected]: (state, action) => {
+      state.error = action.payload;
+      state.loading = false;
+    },
+    [userOrder.pending]: (state, action) => {
+      state.loading = true;
+    },
+    [userOrder.fulfilled]: (state, action) => {
+      state.order = action.payload;
+      state.loading = false;
+    },
+    [userOrder.rejected]: (state, action) => {
       state.error = action.payload;
       state.loading = false;
     },
