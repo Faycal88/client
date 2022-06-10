@@ -3,16 +3,13 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    color : #FFFFFF !important;
   }
 
-  
   .profiler {
     margin-right: 8em !important;
     display: flex;
     flex-direction: column;
     align-items: center;
-    
   }
   .cart-container {
     display: flex;
@@ -22,7 +19,6 @@
     margin-top: 1em;
   }
   .navbar {
-    background-color : #555 !important;
-    
+    background-color: #e7e7e7 !important;
   }
 }
