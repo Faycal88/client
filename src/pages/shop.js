@@ -184,27 +184,7 @@ function Shop() {
               width: "80%",
             }}
           >
-            <h3>Price Range</h3>
-            <br />
-            {products && products.length > 0 && (
-              <Box sx={{ width: 250 }}>
-                <Slider
-                  aria-label="Temperature"
-                  defaultValue={30}
-                  getAriaValueText={valuetext}
-                  valueLabelDisplay="auto"
-                  step={500}
-                  marks
-                  min={
-                    Math.min(...products.map((product) => product.price)) / 100
-                  }
-                  max={
-                    Math.max(...products.map((product) => product.price)) / 100
-                  }
-                  onChange={handleChange}
-                />
-              </Box>
-            )}
+           
           </div>
         </div>
         <div
