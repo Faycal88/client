@@ -57,11 +57,11 @@ function App() {
           path="/admin"
           element={<PrivateRoute>{<Dashboard />}</PrivateRoute>}
         >
-          <Route path="Product" element={<Product />}>
+          <Route path="produits" element={<Product />}>
             <Route path="new" element={<AddProduct />} />
             <Route path=":id" element={<EditProduct />} />
           </Route>
-          <Route path="article" element={<ArticleTable />}>
+          <Route path="articles" element={<ArticleTable />}>
             <Route path="new" element={<AddArticle />} />
             <Route path=":id" element={<EditArticle />} />
           </Route>
