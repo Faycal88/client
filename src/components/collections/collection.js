@@ -19,7 +19,7 @@ function ShowCollection() {
           margin: "2em 4em 0em 4em",
         }}
       >
-        <h2>Featured Collections</h2>
+        <h2>Les plantes populaires</h2>
         <div className="row">
           <div className="col-md-12">
             <CardCollection items={collections} />

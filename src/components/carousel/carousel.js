@@ -4,7 +4,7 @@ import { getProducts } from "../../redux/features/productSlice";
 import { useFetch } from "../../redux/fetch";
 import { Link } from "react-router-dom";
 
-function Carousel(props) {
+function ProductCarousel(props) {
   const { data, error } = useFetch(getProducts());
   const { products, loading } = useSelector((state) => state.product);
 
@@ -15,16 +15,18 @@ function Carousel(props) {
         style={{
           margin: "0em  2em",
           gap: "1em",
+          width: "140%",
         }}
       >
         <div
+          className="carousel-items"
           id={props.items}
           style={{
             alignItems: "stretch",
             display: "flex",
             flexDirection: "row",
             flexWrap: "nowrap",
-            overflowX: "hidden",
+            overflowX: "auto",
             overflowY: "hidden",
             scrollBehavior: "smooth",
           }}
@@ -67,7 +69,7 @@ function Carousel(props) {
                   alignItems: "center",
                   backgroundColor: "white",
                   boxShadow: "0px 0px 10px rgba(0,0,0,0.5)",
-                  maxWidth: "19.333%",
+                  maxWidth: "40%",
                   padding: ".75rem",
                   marginBottom: "2rem",
                   border: "0",
@@ -125,4 +127,4 @@ function Carousel(props) {
   );
 }
 
-export default Carousel;
+export default ProductCarousel;

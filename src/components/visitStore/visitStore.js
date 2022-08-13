@@ -23,11 +23,11 @@ function VisitStore() {
         />
       </div>
       <div className="d-flex flex-column align-items-center justify-content-center">
-        <h3>Visit Us In A Store Near You</h3>
+        <h3>Visitez-nous dans un magasin près de chez vous</h3>
         <p>
-          Our stores around the Country are open for plant shopping, repotting,{" "}
-          <br />
-          curbside pickup, in-person workshops, and more.
+          Nos magasins à travers le pays sont ouverts pour l'achat de plantes,
+          le rempotage, <br />
+          le ramassage des colis, et plus encore.
         </p>
         <button
           onClick={() => (window.location.href = "/stores")}
@@ -36,7 +36,9 @@ function VisitStore() {
             border: "none",
           }}
         >
-          <span className="Link">{`Find Your Local Store >`} </span>
+          <span className="Link">
+            {`Trouver un magasin prés de chez vous >`}{" "}
+          </span>
         </button>
       </div>
     </div>

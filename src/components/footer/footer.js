@@ -75,7 +75,7 @@ function CustomFooter() {
                   }}
                   href="/"
                 >
-                  Home
+                  Accueil
                 </a>
               </li>
               <li>
@@ -87,7 +87,7 @@ function CustomFooter() {
                   }}
                   href="/shop"
                 >
-                  Shop
+                  Boutique
                 </a>
               </li>
               <li>
@@ -99,7 +99,7 @@ function CustomFooter() {
                   }}
                   href="/contact"
                 >
-                  Contact
+                  Contactez-nous
                 </a>
               </li>
               <li>
@@ -111,7 +111,7 @@ function CustomFooter() {
                   }}
                   href="/stores"
                 >
-                  Store
+                  Trouver un magasin
                 </a>
               </li>
             </ul>
@@ -132,7 +132,7 @@ function CustomFooter() {
             }}
           ></div>
           <div>
-            <h5>FOLLOW US</h5>
+            <h5>SUIVEZ-NOUS</h5>
             <ul
               style={{
                 listStyle: "none",
@@ -191,14 +191,14 @@ function CustomFooter() {
               gap: ".8em",
             }}
           >
-            <h5>NEWSLETTER</h5>
+            <h5>ABONNEZ-VOUS</h5>
             <div>
               <p
                 style={{
                   margin: "0",
                 }}
               >
-                <small>Subscribe</small>
+                <small>S'abonner</small>
               </p>
               <div
                 style={{
@@ -219,7 +219,7 @@ function CustomFooter() {
                     color: "#555",
                     marginBottom: "1em",
                   }}
-                  placeholder="Enter your email"
+                  placeholder="Entrer votre Email"
                 />
                 <div
                   style={{

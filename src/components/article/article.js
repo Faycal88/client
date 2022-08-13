@@ -48,7 +48,7 @@ function Article() {
             }}
           >
             <div style={{ top: "50%", button: "50%" }}>
-              <h2>Plant Care Guide</h2>
+              <h2>Guide d'entretien</h2>
               <p style={{ marginTop: "2em", textAlign: "flex-start" }}>
                 {`${item.description.substring(0, 500)}...`}
               </p>
@@ -59,7 +59,7 @@ function Article() {
               }}
               style={{ padding: ".5em" }}
             >
-              Learn More
+              En savoir plus
             </button>
           </div>
         </div>

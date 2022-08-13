@@ -72,17 +72,17 @@ function Header() {
             <ul className="navbar-nav">
               <li className="nav-item">
                 <a className="nav-link active" aria-current="page" href="/">
-                  Home
+                  Accueil
                 </a>
               </li>
               <li className="nav-item">
                 <a id="shop" className="nav-link " href="/shop">
-                  Shop
+                  Boutique
                 </a>
               </li>
               <li className="nav-item">
                 <a id="contact" className="nav-link" href="/contact">
-                  Contact
+                  Contactez-nous
                 </a>
               </li>
 
@@ -101,7 +101,7 @@ function Header() {
                   ) : null}
                   <li className="nav-item">
                     <a className="nav-link" onClick={logout} href="/">
-                      Logout
+                      Déconnexion
                     </a>
                   </li>
                   {user?.picture ? (

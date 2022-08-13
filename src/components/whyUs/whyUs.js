@@ -12,7 +12,7 @@ function WhyUs() {
             textAlign: "center",
           }}
         >
-          Why us?
+          Pourquoi nous?
         </h3>
         <div
           className="whyUsTextContent"
@@ -30,9 +30,10 @@ function WhyUs() {
               alt="quality"
             />
             <p style={{ marginTop: "2em" }}>
-              <strong>Unbeatable quality</strong> <br /> We source directly from
-              top-rated growers, so we can sell the finest quality plants at the
-              very best prices.
+              <strong>Qualité imbattable</strong> <br /> Nous nous
+              approvisionnons directement auprès des meilleurs producteurs, afin
+              que nous puissions vendre les plantes de la meilleure qualité aux
+              meilleurs prix.
             </p>
           </div>
           <div id="item" style={{ marginRight: "5%" }}>
@@ -42,9 +43,9 @@ function WhyUs() {
               alt="delivery"
             />
             <p style={{ marginTop: "2em" }}>
-              <strong>Fast delivery</strong> <br /> We’ll bring your plants to
-              your door, anywhere in Algeria. If you’re not 100% happy, tell us
-              within 30 days and we’ll sort it.
+              <strong>Livraison rapide</strong> <br /> Nous apportons vos
+              plantes à votre porte, en Algérie. Si vous n'êtes pas satisfait à
+              100%, dites-le nous et nous réglerons le problème.
             </p>
           </div>
           <div id="item" style={{ marginRight: "5%" }}>
@@ -54,9 +55,8 @@ function WhyUs() {
               alt="assistance"
             />
             <p style={{ marginTop: "2em" }}>
-              <strong>All the help you need</strong> <br /> We’ll send you a
-              free plant-parenting course and our plant doctors are always on
-              call.
+              <strong>Besoin d'aide ? </strong> <br /> Nos médecins de plantes
+              sont toujours disponibles.
             </p>
           </div>
         </div>

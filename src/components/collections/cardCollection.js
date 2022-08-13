@@ -6,7 +6,7 @@ function CardCollection(props) {
     <div className="d-flex gap-1 cardcontainer">
       {props.items &&
         props.items.map((item) => (
-          <div className="card col-4" key={item._id}>
+          <div className=" col-4" key={item._id}>
             <div className="card-body">
               <div className="card-title">
                 <h5>{item.name}</h5>
@@ -25,9 +25,9 @@ function CardCollection(props) {
                   </Link>
                 </div>
 
-                <div className="mt-3">
+                {/* <div className="mt-3">
                   <p>{`${item.description}`}</p>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
