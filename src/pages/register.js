@@ -46,7 +46,8 @@ function Register() {
     <div style={{ justifyContent: "center" }} className="container mt-5">
       <div className="card col-8">
         <div className="card-body">
-          <h5 className="card-title">Register</h5>
+          <h5 className="card-title">Créer un compte</h5>
+          <h3>Et profitez </h3>
           <form onSubmit={handleSubmit}>
             <div>
               {picture ? (

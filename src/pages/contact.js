@@ -26,13 +26,13 @@ function Contact() {
     >
       <div className="mb-4">
         <h2 className="h1-responsive font-weight-bold text-center my-4">
-          Contact us
+          Contactez nous ou prendre un devis
         </h2>
 
         <p className="text-center w-responsive mx-auto mb-5">
-          Do you have any questions? Please do not hesitate to contact us
-          directly. Our team will come back to you within a matter of hours to
-          help you.
+          Avez-vous des questions? N'hésitez pas à nous contacter directement.{" "}
+          <br />
+          Notre équipe reviendra vers vous en quelques heures.
         </p>
 
         <div className="row">
@@ -47,7 +47,7 @@ function Contact() {
                 <div className="col-md-6">
                   <div className="md-form mb-0">
                     <label htmlFor="name" className="">
-                      Your name
+                      Nom et Prénom
                     </label>
                     <input
                       type="text"
@@ -61,7 +61,7 @@ function Contact() {
                 <div className="col-md-6">
                   <div className="md-form mb-0">
                     <label htmlFor="email" className="">
-                      Your email
+                      Adresse mail
                     </label>
                     <input
                       type="text"
@@ -77,7 +77,7 @@ function Contact() {
                 <div className="col-md-12">
                   <div className="md-form mb-0">
                     <label htmlFor="subject" className="">
-                      Subject
+                      Objet
                     </label>
                     <input
                       type="text"
@@ -91,7 +91,7 @@ function Contact() {
               <div className="row">
                 <div className="col-md-12">
                   <div className="md-form">
-                    <label htmlFor="message">Your message</label>
+                    <label htmlFor="message">Votre message</label>
                     <textarea
                       type="text"
                       id="message"
@@ -111,7 +111,7 @@ function Contact() {
                   sendMail();
                 }}
               >
-                Send
+                Envoyer
               </a>
             </div>
             <div className="status"></div>
@@ -130,7 +130,7 @@ function Contact() {
 
               <li>
                 <i className="fas fa-envelope mt-4 fa-2x"></i>
-                <p>contact@eternelle-plantes.shop</p>
+                <p>eternelle.plantes@gmail.com</p>
               </li>
             </ul>
           </div>

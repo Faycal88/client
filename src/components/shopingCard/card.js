@@ -5,8 +5,10 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { cart } from "../../redux/features/cartSlice";
 import { toast } from "react-toastify";
+import "./card.css";
 
 function Card(props) {
+  console.log(props);
   const [currentPage, setCurrentPage] = useState(1);
   const [productPerPage, setProductPerPage] = useState(12);
   const indexOfLastProduct = currentPage * productPerPage;
@@ -43,6 +45,7 @@ function Card(props) {
             >
               <div className="card-image">
                 <div
+                  className="card-title"
                   style={{
                     width: "100%",
                     position: "absolute",
@@ -55,7 +58,6 @@ function Card(props) {
                     zIndex: "1",
                     display: "none",
                   }}
-                  className="card-title"
                 >
                   {" "}
                   <strong>{item.title}</strong>{" "}

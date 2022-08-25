@@ -80,6 +80,7 @@ function App() {
         />
         <Route path="/bag" element={<NeedLogin> {<Checkout />} </NeedLogin>} />
         <Route path="/product/:id" element={<ProductPage />} />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
       <CustomFooter />

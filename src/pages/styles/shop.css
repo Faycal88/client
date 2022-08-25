@@ -1,3 +1,25 @@
+.butomBorder {
+  color: #666;
+  display: inline-block;
+  margin: 0;
+}
+.butomBorder:after {
+  display: block;
+  content: "";
+  border-bottom: solid 3px #1bc814;
+  transform: scaleX(0);
+  transition: transform 250ms ease-in-out;
+}
+.butomBorder:hover:after {
+  transform: scaleX(1);
+}
+.butomBorder.fromRight:after {
+  transform-origin: 100% 50%;
+}
+.butomBorder.fromLeft:after {
+  transform-origin: 0% 50%;
+}
+
 @media only screen and (max-width: 955px) {
   .shop {
     display: flex;

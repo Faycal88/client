@@ -59,12 +59,12 @@ function Login() {
     >
       <div className=" w-50 login-form">
         {error && <p className="text-danger">{error}</p>}
-        <h5 className="card-title">Log in to your account</h5>
+        <h5 className="card-title">connectez-vous à votre compte</h5>
         <div className=" d-flex card-body">
           <div>
             <form onSubmit={handleSubmit}>
               <div className="form-group">
-                <label htmlFor="exampleInputEmail1">Email address</label>
+                <label htmlFor="exampleInputEmail1">Adresse mail</label>
                 <input
                   type="email"
                   className="form-control"
@@ -76,7 +76,7 @@ function Login() {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="exampleInputPassword1">Password</label>
+                <label htmlFor="exampleInputPassword1">Mot de passe</label>
                 <input
                   type="password"
                   className="form-control"
@@ -87,7 +87,7 @@ function Login() {
                 />
               </div>
               <button type="submit" className="btn btn-primary mt-3 ">
-                Submit
+                Connexion
               </button>
               <div>
                 <Spacer />
@@ -167,7 +167,7 @@ function Login() {
           </div>
         </div>
         <div className="login_link">
-          Don't have an account ? <Link to="/register">Register</Link>
+          Pas de compte ? <Link to="/register">Inscrivez-vous</Link>
         </div>
       </div>
       <div>

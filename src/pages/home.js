@@ -153,19 +153,19 @@ function Landing() {
       >
         <div className="carousel">
           <div>
-            <Link className="shop_link" to="/shop?browse=indoor">
+            <Link className="shop_link" to="/shop?browse=Plante d'extérieur">
               <span>{`Nos plantes les plus vendues >`}</span>
             </Link>
           </div>
-          <ProductCarousel items={"indoor"} />
+          <ProductCarousel items={"Plante d'extérieur"} />
         </div>
         <div className="carousel">
           <div>
-            <Link className="shop_link" to="/shop?browse=flower">
+            <Link className="shop_link" to="/shop?browse=Fleurs">
               <span>{`Bouquets De Fleurs >`}</span>
             </Link>
           </div>
-          <ProductCarousel items={"flower"} />
+          <ProductCarousel items={"Fleurs"} />
         </div>
       </section>
       <section style={{ margin: "3% 5%" }}>

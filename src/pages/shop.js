@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import Card from "../components/shopingCard/card";
 import { useSearchParams } from "react-router-dom";
 import { getCollections } from "../redux/features/collectionSlice";
+import { getCategories } from "../redux/features/categorySlice";
 import Loading from "../components/Loading/Loading";
 
 function Shop() {
@@ -14,6 +15,10 @@ function Shop() {
   const dispatch = useDispatch();
   const { products } = useSelector((state) => ({ ...state.product }));
   const { collections } = useSelector((state) => ({ ...state.collection }));
+  const { categories } = useSelector((state) => ({
+    ...state.category.categories,
+  }));
+  console.log(categories);
 
   let [searchParams, setSearchParams] = useSearchParams({});
 
@@ -23,8 +28,10 @@ function Shop() {
   useEffect(() => {
     dispatch(getProducts());
     dispatch(getCollections());
+    dispatch(getCategories());
     const category = searchParams.get("browse");
     const collectionName = searchParams.get("collection");
+    console.log(collectionName);
     if (
       category != null &&
       category !== "" &&
@@ -38,8 +45,8 @@ function Shop() {
       collectionName !== "" &&
       collections
     ) {
-      const { products } = collections.find(
-        (collection) => collection.name === collectionName
+      const { products } = collections.find((collection) =>
+        collection.name.includes(collectionName)
       );
       console.log(products);
       setFilter(products);
@@ -73,7 +80,7 @@ function Shop() {
       style={{ margin: "4em 0em 0em 2em", padding: "0" }}
       className="col-md-11"
     >
-      <h1>Shop</h1>
+      <h1>Boutique</h1>
       <div className="shop" style={{ display: "flex" }}>
         <div style={{ marginTop: "2em" }} className="sidebar">
           <div className="sidebar-header col-md-12">
@@ -117,7 +124,7 @@ function Shop() {
             </div>
           </div>
           <div style={{ marginTop: "2em" }} className="sidebar-body">
-            <h3>Categories</h3>
+            <h3>Catégories</h3>
             <ul
               style={{
                 listStyle: "none",
@@ -129,63 +136,42 @@ function Shop() {
             >
               <li>
                 <button
+                  className="butomBorder"
                   onClick={() => setFilter(products)}
                   style={{ border: "none", background: "transparent" }}
                 >
-                  All
+                  Tout les produits
                 </button>
               </li>
-              <li>
-                <button
-                  onClick={() =>
-                    setFilter(
-                      products.filter(
-                        (product) => product.category === "indoor"
-                      )
-                    )
-                  }
-                  style={{ border: "none", background: "transparent" }}
-                >
-                  Indoor Plants
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() =>
-                    setFilter(
-                      products.filter(
-                        (product) => product.category === "outdoor"
-                      )
-                    )
-                  }
-                  style={{ border: "none", background: "transparent" }}
-                >
-                  Outdoor Plants
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() =>
-                    setFilter(
-                      products.filter(
-                        (product) => product.category === "decorative"
-                      )
-                    )
-                  }
-                  style={{ border: "none", background: "transparent" }}
-                >
-                  Decorative Plants
-                </button>
-              </li>
+              {categories &&
+                categories.map((category) => (
+                  <li>
+                    <button
+                      className="butomBorder"
+                      onClick={() =>
+                        setFilter(
+                          products.filter(
+                            (product) => product.category === category.name
+                          )
+                        )
+                      }
+                      style={{
+                        border: "none",
+                        background: "transparent",
+                      }}
+                      key={category._id}
+                    >
+                      {category.name}
+                    </button>
+                  </li>
+                ))}
             </ul>
           </div>
           <div
             style={{
               width: "80%",
             }}
-          >
-           
-          </div>
+          ></div>
         </div>
         <div
           style={{ margin: "0em 1em 0em 1em", padding: "0" }}
