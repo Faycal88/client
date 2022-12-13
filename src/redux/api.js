@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API = axios.create(
   {
-    baseURL: "https://eternelle.herokuapp.com/",
+    baseURL: "https://leternelle-des-plantes.onrender.com/",
   },
   {
     timeout: 10000,
